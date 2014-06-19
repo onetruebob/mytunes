@@ -8,6 +8,12 @@ var SongQueue = Songs.extend({
       }
     }, this);
 
+    this.on('reset', function(current, prev){
+      if(this.at(0) !== prev.previousModels[0]) { //If the top song has changed, play the new one.
+        this.playFirst();
+      }
+    }, this);
+
     this.on('ended', function(){
       this.songEnded();
     });
