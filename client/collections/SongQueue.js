@@ -27,6 +27,7 @@ var SongQueue = Songs.extend({
 
   dequeue: function (){
     this.shift();
+    this.notifyIfEmpty();
   },
 
   songEnded: function() {
@@ -42,7 +43,18 @@ var SongQueue = Songs.extend({
   },
 
   removeSongFromQueue: function(song) {
+    if(song === this.at(0)) { //Trigger ended on the top song on the queue
+      song.ended();
+    }
     this.remove(song);
+    if(this.at(0)){this.playFirst()}
+    this.notifyIfEmpty();
+  },
+
+  notifyIfEmpty: function() {
+    if(this.length < 1) {
+      this.trigger('queueEmpty');
+    }
   }
 
 });
