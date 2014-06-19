@@ -20,9 +20,11 @@ describe('PlayerView', function() {
         artist: "Aaliyah"
       },
     ]);
+    songQueue = new SongQueue();
     // playerView is created in AppView initialize
     // access with appView.playerView
-    appView = new AppView({model: new AppModel({library: library})});
+    appView = new AppView({model: new AppModel({library: library,
+                                                 songQueue: songQueue})});
   });
 
   it('gets its model property set to any song that is played', function(){
@@ -32,7 +34,7 @@ describe('PlayerView', function() {
   });
 
   describe('Song transitions', function() {
-    xit('dequeues a song when finished playing & plays the next song', function(){
+    it('dequeues a song when finished playing & plays the next song', function(){
       var firstSong = library.at(0)
         , secondSong = library.at(1)
         , thirdSong = library.at(2)

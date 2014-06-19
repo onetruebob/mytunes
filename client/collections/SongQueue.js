@@ -3,11 +3,17 @@ var SongQueue = Songs.extend({
 
   initialize: function(){
     this.on('add', function(){
-      this._playNext();
+      if(this.length === 1) {
+        this.playFirst();
+      }
     }, this);
 
     this.on('ended', function(){
       this.songEnded();
+    });
+
+    this.on('dequeue', function(){
+      this.dequeue();
     })
   },
 
@@ -15,16 +21,20 @@ var SongQueue = Songs.extend({
     this.push(song);
   },
 
-  songEnded: function() {
+  dequeue: function (){
     this.shift();
-    this._playNext();
   },
 
-  _playNext: function(){
+  songEnded: function() {
+    this.dequeue();
     if(this.length >= 1) {
       //Play a song if there is one in the queue
-      this.at(0).play();
+      this.playFirst();
     }
+  },
+
+  playFirst: function(){
+    this.at(0).play();
   }
 
 });

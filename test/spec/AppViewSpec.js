@@ -2,8 +2,8 @@ describe('AppView', function() {
   var appView, app;
 
   beforeEach(function () {
-    app = new AppModel({library:
-      new Songs([
+    app = new AppModel({
+      library: new Songs([
         {
           artist: 'Fakey McFakerson',
           title: 'Never Gonna Mock You Up',
@@ -14,7 +14,8 @@ describe('AppView', function() {
           title: 'Sizzle Sundays',
           url: 'fake/url'
         }
-      ])
+      ]), 
+      songQueue: new SongQueue()
     });
     appView = new AppView({model: app});
   });
