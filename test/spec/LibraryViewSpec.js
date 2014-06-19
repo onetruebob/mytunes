@@ -28,6 +28,6 @@ describe("LibraryView", function() {
   it("should have a header element after being rendered", function(){
     view = new LibraryView({collection: fakeSongs});
     expect(view.$el.children().length).to.equal(2);
-    expect(view.$el.children()[0].tagName).to.equal('TH');
+    expect(view.$el.children()[0].tagName).to.equal('H3');
   });
 });
