@@ -38,4 +38,12 @@ describe('SongModel', function() {
       expect(model.trigger).to.have.been.calledWith('ended', model);
     });
   });
+
+  describe('queueRemoval', function (){
+    it('fires a "queueRemove" event ', function() {
+      model.queueRemove();
+      expect(model.trigger).to.have.been.calledWith('queueRemove', model);
+    });
+  });
+
 });
