@@ -18,6 +18,7 @@ var LibraryEntryView = Backbone.View.extend({
   },
 
   render: function(){
+    this.$el.data('song', this.model);
     return this.$el.html(this.template(this.model.attributes));
   }
 

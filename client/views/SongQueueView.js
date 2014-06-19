@@ -7,6 +7,12 @@ var SongQueueView = Backbone.View.extend({
     this.collection.on('add remove', function(){  //TODO: Why won't this work on 'change' ?
       this.render();
     }, this);
+
+    this.$el.droppable({
+      drop: function( e, ui) {
+        $(ui.draggable).data('song').enqueue();
+      }
+    });
   },
 
   render: function() {
