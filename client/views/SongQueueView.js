@@ -10,6 +10,7 @@ var SongQueueView = Backbone.View.extend({
     }, this);
 
     this.$el.droppable({
+      hoverClass: 'drop-hover',
       drop: this._songDrop.bind(this)
     });
 
@@ -23,7 +24,7 @@ var SongQueueView = Backbone.View.extend({
 
   render: function() {
     this.$el.children().detach();
-
+    this.$el.addClass('queue');
     this.$el.append('<h3>Song Queue</h3>');
     if (this.collection.length > 0) {
       var $list = $('<ol></ol>')

@@ -1,0 +1,9 @@
+.queue {
+  background-color: rgba(0, 0, 200, 0.2);
+  min-height: 50px;
+  padding: 2px 25px 5px 25px;
+}
+
+.drop-hover {
+  background-color: rgba(0, 0, 200, 0.3);
+}
