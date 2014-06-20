@@ -16,6 +16,7 @@ var SongQueueView = Backbone.View.extend({
     this.$el.sortable({
       // containment: 'parent',
       items: 'li',
+      cursor: 'move',
       stop: this._songReorder.bind(this)
     });
   },

@@ -14,7 +14,8 @@ var LibraryEntryView = Backbone.View.extend({
   initialize: function (){
 
     this.$el.draggable({
-      helper: 'clone'
+      helper: 'clone',
+      cursor: 'move'
     });
 
   },
