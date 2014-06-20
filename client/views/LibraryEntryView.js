@@ -3,7 +3,7 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'li',
 
-  template: _.template('(<%= artist %>) <%= title %>'),
+  template: _.template('(<%= artist %>) <%= title %> - played: <%= playCount %>'),
 
   events: {
     'dblclick': function() {
@@ -12,9 +12,11 @@ var LibraryEntryView = Backbone.View.extend({
   },
 
   initialize: function (){
+
     this.$el.draggable({
       helper: 'clone'
     });
+
   },
 
   render: function(){
